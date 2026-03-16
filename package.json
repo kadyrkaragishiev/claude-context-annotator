@@ -3,7 +3,7 @@
   "displayName": "Claude Context Annotator",
   "description": "Annotate code regions and send structured context directly to Claude Code",
   "version": "0.1.0",
-  "publisher": "your-publisher-name",
+  "publisher": "kadyrkaragishiev",
   "icon": "media/icon.png",
   "license": "MIT",
   "repository": {
