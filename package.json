@@ -1,0 +1,89 @@
+{
+  "name": "claude-context-annotator",
+  "displayName": "Claude Context Annotator",
+  "description": "Annotate code regions and send structured context directly to Claude Code",
+  "version": "0.1.0",
+  "publisher": "your-publisher-name",
+  "icon": "media/icon.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/claude-context-annotator"
+  },
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["AI", "Other"],
+  "keywords": ["claude", "ai", "context", "annotation", "claude-code"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudeContext.addAnnotation",
+        "title": "Add to Claude Context",
+        "category": "Claude"
+      },
+      {
+        "command": "claudeContext.sendToClaude",
+        "title": "Send Context to Claude Code",
+        "category": "Claude"
+      },
+      {
+        "command": "claudeContext.clearAll",
+        "title": "Clear Claude Context",
+        "category": "Claude"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "claudeContext.addAnnotation",
+          "group": "claude@1"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "claudeContext.addAnnotation",
+        "key": "ctrl+shift+a",
+        "mac": "cmd+shift+a",
+        "when": "editorHasSelection"
+      },
+      {
+        "command": "claudeContext.sendToClaude",
+        "key": "ctrl+shift+enter",
+        "mac": "cmd+shift+enter"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "claudeContext",
+          "title": "Claude Context",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "claudeContext": [
+        {
+          "type": "webview",
+          "id": "claudeContext.panel",
+          "name": "Context Blocks"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  }
+}
