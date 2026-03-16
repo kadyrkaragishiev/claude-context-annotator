@@ -78,7 +78,7 @@ Package as `.vsix` for local install:
 
 ```bash
 npm run package
-code --install-extension claude-context-annotator-0.1.0.vsix
+code --install-extension claude-context-annotator-0.1.1.vsix
 ```
 
 ## Citation
